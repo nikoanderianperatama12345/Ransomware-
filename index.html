@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peringatan Keamanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #ff0000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            display: none; /* Sembunyikan konten ini awalnya */
+        }
+        .success {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            display: none; /* Sembunyikan konten ini awalnya */
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #cc0000;
+        }
+        .input-field {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            width: 80%;
+        }
+        img {
+            width: 200px; /* Ukuran gambar */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="warningContainer">
+    <h1>Peringatan!</h1>
+    <p>smartphone Anda telah terkunci!</p>
+    <p>Silakan masukkan pola nomor Anda untuk mendapatkan bantuan.</p>
+    <input type="text" class="input-field" placeholder="Masukkan pola nomor " id="userInput">
+    <button class="button" onclick="submitPattern()">Kirim Pola</button>
+    <p style="margin-top: 20px;">Hubungi pencipta: <strong>REDDBLACK</strong></p>
+</div>
+
+<div class="success" id="successContainer">
+    <h1>Selamat!</h1>
+    <p>Pola yang Anda masukkan benar.</p>
+    <p>Anda telah berhasil membuka kunci!</p>
+    <img src="niko.png" alt="Gembok Terbuka"> <!-- Ganti dengan URL gambar gembok terbuka yang sesuai -->
+    <p>Terima kasih telah menghubungi pencipta: <strong>REDDBLACK</strong></p>
+</div>
+
+<script>
+    // Tampilkan konten peringatan saat halaman dimuat
+    document.getElementById('warningContainer').style.display = 'block';
+
+    function submitPattern() {
+        const userInput = document.getElementById('userInput').value;
+        const correctPattern = "191922"; // Pola yang benar
+
+        if (userInput === correctPattern) {
+            // Sembunyikan konten peringatan dan tampilkan konten sukses
+            document.getElementById('warningContainer').style.display = 'none';
+            document.getElementById('successContainer').style.display = 'block';
+        } else {
+            alert("Pola tidak valid! Harap masukkan pola yang benar");
+        }
+    }
+</script>
+
+</body>
+</html>
